@@ -17,11 +17,13 @@ function Car (model, manufacture, startYer, maxSpeed, anginV) {
         return this.maxSpeed;
     };
     this.info = function info () {
-        console.log(`Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer} 
-         Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л`);
-        document.write(`<p>Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer} 
-        Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л</p>`);
-        return this.model, this.manufacture, this.startYer, this.maxSpeed, this.anginV;
+        // console.log(`Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer}
+        //  Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л`);
+        // document.write(`<p>Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer}
+        // Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л</p>`);
+        for (let key in this) {
+            if (typeof this[key] !== 'function') console.log(`${key} - ${this[key]}`)
+        };
     };
     this.increaseMaxSpeed = function increaseMaxSpeed (newSpeed) {
         document.write(`<p>Нова максимальна швидкість ${this.maxSpeed += newSpeed} км/год</p>`)
@@ -60,13 +62,16 @@ class Car2 {
         this.startYer = startYer;
         this.maxSpeed = maxSpeed;
         this.anginV = anginV;
-    }
+    };
     info () {
-        console.log(`Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer} 
-         Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л`);
-        document.write(`<p>Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer} 
-        Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л</p>`);
-        return this.model, this.manufacture, this.startYer, this.maxSpeed, this.anginV;
+        // console.log(`Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer}
+        //  Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л`);
+        // document.write(`<p>Модель: ${this.model} Виробник: ${this.manufacture} Рік випуску: ${this.startYer}
+        // Максимальна швидкість: ${this.maxSpeed}км/год Об'єм двигуна: ${this.anginV}л</p>`);
+        // return this.model, this.manufacture, this.startYer, this.maxSpeed, this.anginV;
+        for (let car2Element in this) {
+          console.log(`${car2Element} - ${this[car2Element]}`)
+        };
     };
     drive () {
         console.log(`Їдемо зі швидкістю ${this.maxSpeed} кілометрів на годину`);
@@ -80,12 +85,12 @@ class Car2 {
     changeYear (newValue) {
         document.write(`Новий рік випуску: ${this.startYer = newValue}`);
         return this.startYer = newValue;
-    }
+    };
     addDriver (driver) {
         document.write(`<p>Новий водій: ${driver}</p>`);
         return car2.drivers = driver;
-    }
-}
+    };
+};
 let car2 = new Car2('BMW', 'VAG', 200, 210, 2.0)
 console.log('Car2: ', car2);
 console.log(car2.drive());
